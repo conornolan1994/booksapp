@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Authorname:</strong>
+  <%= @author.authorname %>
+</p>
+
+<p>
+  <strong>Authorphoto:</strong>
+  <%= image_tag(@author.authorphoto, :size => "250x330") %>
+</p>
+<br>
+<br>
+<h3>Current Book's On Sale:</h3>
+<br>
+<% @author.books.each do |book| %>
+	<%= book.bookname %>
+	<br>
+	Price: <%= book.price %>
+	<br>
+	<br>
+<% end %>
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Back', authors_path %>
