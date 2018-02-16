@@ -54,11 +54,17 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1
   # DELETE /authors/1.json
   def destroy
-    @author.destroy
-    respond_to do |format|
-      format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+	if signed_in?
+		session[:user_id] = nil
+		@author.destroy
+		respond_to do |format|
+		format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
+		format.json { head :no_content }
+		end
+	else
+		flash[:notice] = "You need to log in first."
+		redirect_to login_path
+	end
   end
 
   private

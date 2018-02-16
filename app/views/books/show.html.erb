@@ -22,7 +22,7 @@
 
 <p>
   <strong>Bookcover:</strong>
-  <%= image_tag(@book.bookcover) %>
+  <%= image_tag(@book.bookcover, :size => "250x330") %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

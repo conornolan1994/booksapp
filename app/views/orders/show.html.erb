@@ -2,7 +2,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @order.user_id %>
+  <%= @order.user.username %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @order.book.bookname %>
 </p>
 
 <p>

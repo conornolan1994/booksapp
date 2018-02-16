@@ -2,12 +2,12 @@
 
 one:
   username: MyString
-  password: MyString
-  dob: 2018-01-30
   email: MyString
+  dob: 2018-02-13
+  password_digest: MyString
 
 two:
   username: MyString
-  password: MyString
-  dob: 2018-01-30
   email: MyString
+  dob: 2018-02-13
+  password_digest: MyString

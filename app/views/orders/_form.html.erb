@@ -1,4 +1,6 @@
+
 <%= form_with(model: order, local: true) do |form| %>
+
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -13,12 +15,16 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :order_user_id %>
+    <%= form.collection_select :user_id,User.all, :id, :username, :include_blank => "Select from List" %>
   </div>
+  
+  <div class="field">
+	<%= form.label :book_id %>
+	<%= form.collection_select :book_id, Book.all, :id, :bookname, :include_blank => "Select from List" %>
 
   <div class="field">
-    <%= form.label :totalprice %>
-    <%= form.number_field :totalprice, id: :order_totalprice %>
+    <%= form.label :book_price %>
+    <%= form.number_field :price, id: :book_price %>
   </div>
 
   <div class="field">
